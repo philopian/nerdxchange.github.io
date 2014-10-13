@@ -20,8 +20,21 @@
     // create the controller and inject Angular's $scope
     myApp.controller('mainController', function($scope) {
 
-     // create a message to display in our view
-     $scope.message = 'The starting ground of the nerdXchange !!!!!';
+    // create a message to display in our view
+    $scope.radLinks = [
+        {
+          "date": "2014/10/13", 
+          "title":"PostGIS, Creating Overlays", 
+          "description":"Here is an example of working with PostGIS", 
+          "url":"http://boundlessgeo.com/2014/10/postgis-training-creating-overlays/"
+        },
+        {
+          "date": "2014/10/12", 
+          "title":"PostGIS, Training", 
+          "description":"Want some training in PostGIS?? Here's a cheap workshop", 
+          "url":"http://boundless.talentlms.com/catalog/info/id:117"
+        },
+    ];
 
 
 
@@ -36,17 +49,27 @@
 
     <!-- MAIN CONTENT AND INJECTED VIEWS -->
     <div id="main" class="hero-unit">
-     {{ message }}
-
-     <!-- angular templating -->
-     <!-- this is where content will be injected -->
+      <h2>The starting ground of the nerdXchange</h2>
     </div>
 
 
 
+<div class="container">
+      <div class="panel panel-default" ng-repeat="link in radLinks">
+          <div class="panel-body">
+            <h3>{{link.title}}</h3>
+            <p>{{link.date}}</p>
+            <p>{{link.description}}</p>
+           <a ng-href="link.url">  {{link.url}}</a>
+          </div>
+      </div>
+</div>
+
+
+
     
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-flash" ></span></p>
+      <div class="footer" style="text-align: center;">
+        <p><span class="glyphicon glyphicon-flash"></span></p>
       </div>
 
  </body>
